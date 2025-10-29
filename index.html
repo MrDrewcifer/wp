@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>WhatsApp Web Launcher</title>
+    <style>
+        /* Base Styling for the Launcher Screen */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+            background-color: #000; /* Black background for a clean launch */
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #launch-message {
+            font-size: 14px;
+            color: #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="launch-message">
+        Launching WhatsApp Web...<br>
+        (Redirecting now. You may need to scan a QR code with your phone.)
+    </div>
+
+    <script>
+        // The target URL for WhatsApp Web
+        const WHATSAPP_WEB_URL = "https://web.whatsapp.com/";
+        
+        // Use a very short delay to ensure the R1's web environment initializes fully before the redirect.
+        const REDIRECT_DELAY_MS = 100;
+
+        function launchWhatsAppWeb() {
+            console.log(`Redirecting to: ${WHATSAPP_WEB_URL}`);
+            // Use window.location.replace to navigate the entire browser window to WhatsApp Web.
+            window.location.replace(WHATSAPP_WEB_URL);
+        }
+
+        // Wait for a moment before executing the redirect
+        setTimeout(launchWhatsAppWeb, REDIRECT_DELAY_MS);
+    </script>
+</body>
+</html>
